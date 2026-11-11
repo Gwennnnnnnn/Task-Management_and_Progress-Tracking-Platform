@@ -79,7 +79,7 @@ All four members will contribute to **both frontend and backend development**.
 
 | Member | Main Responsibility | Frontend | Backend |
 |--------|---------------------|----------|---------|
-| **Rianne** | Authentication & Account Integration | Login, user profiles, account settings, role-based navigation | Authentication, user permissions, account management APIs |
+| **Reanne** | Authentication & Account Integration | Login, user profiles, account settings, role-based navigation | Authentication, user permissions, account management APIs |
 | **Gwen** | AI Task Extraction & Approval Management | Outlook/Teams connection interface, AI task suggestions, user/manager approval, task creation and editing | Microsoft Graph integration, AI task extraction, approval workflow, task APIs, database operations and notifications |
 | **Hung** | Staff Dashboard & AI Task Tracking | Personal dashboard, calendar, progress bars, task filtering, task status updates | Personal task retrieval, progress tracking, AI-assisted status suggestions and task history |
 | **Cheryl** | Manager Dashboard & AI Insights | Manager dashboard, team overview, employee progress tracking, AI summaries | Team task APIs, AI prioritisation, team progress monitoring and AI-generated summaries |
@@ -128,7 +128,7 @@ Each member will develop their assigned module using a separate feature branch.
 | Branch | Assigned Member |
 |--------|-----------------|
 | `main` | Stable shared code |
-| `feature/authentication` | Rianne |
+| `feature/authentication` | Reanne |
 | `feature/ai-task-extraction` | Gwen |
 | `feature/personal-dashboard` | Hung |
 | `feature/manager-dashboard` | Cheryl |
