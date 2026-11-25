@@ -96,23 +96,26 @@ Use **Reset Demo Data** at the bottom of the sidebar to restore the original dat
 
 ## Project structure
 
+```text
 .
 ├── frontend/
-│   ├── public/             # Static assets
-│   ├── src/
-│   │   ├── components/     # Reusable UI
-│   │   ├── pages/          # Login, dashboards and task review
-│   │   ├── services/       # Mock authentication, task and AI logic
-│   │   ├── context/        # Shared authentication and task state
-│   │   ├── data/           # Mock data
-│   │   ├── hooks/
-│   │   └── styles/
-│   ├── package.json
-│   └── vite.config.js
-├── backend/                # Reserved for backend development
-├── sample-data/            # Anonymised or synthetic test communications
-├── docs/                   # Project planning and technical documentation
+│   ├── public/             # Static assets
+│   ├── src/
+│   │   ├── components/     # Reusable UI components
+│   │   ├── pages/          # Login, dashboards and task review
+│   │   ├── services/       # Mock authentication, task and AI logic
+│   │   ├── context/        # Shared authentication and task state
+│   │   ├── data/           # Mock data
+│   │   ├── hooks/          # Custom React hooks
+│   │   └── styles/         # Application styling
+│   ├── package.json
+│   └── vite.config.js
+├── backend/                # Reserved for backend development
+├── sample-data/            # Anonymised or synthetic test communications
+├── docs/                   # Project planning and technical documentation
 └── README.md
+```
+
 
 ## Team responsibilities
 
