@@ -1,3 +1,74 @@
+# CLA TaskFlow — AI-Powered Task Management & Progress Tracking Platform
+
+**NYP Industry Immersion Project (IIP) | Team 9**
+
+CLA TaskFlow is designed to help CLA's audit staff and managers identify, prioritise, manage and track tasks from Microsoft Outlook and Teams.
+
+The current proof of concept (PoC) is a React frontend that runs in the browser using mock data, React Context and localStorage. Task extraction, prioritisation, status suggestions and team insights are simulated. Backend development, database setup and live Microsoft integrations are planned.
+
+## Run the project locally
+
+### Frontend
+
+Install Node.js and npm. From the repository root, run:
+
+cd frontend
+npm ci
+npm run dev
+
+Open the URL printed by Vite, usually http://localhost:5173. Use a quick-login button on the sign-in page to try the demo. Press Ctrl+C to stop the development server.
+
+To build and preview the frontend, run these commands from the frontend folder:
+
+npm run build
+npm run preview
+
+Vite saves the build in frontend/dist/. Open the preview URL printed in the terminal.
+
+### Backend
+
+The backend is planned for a later update. The current demo runs with the frontend alone. Backend setup and startup instructions will be added when it is implemented.
+
+## Project overview
+
+CLA's audit staff manage tasks across Outlook, Teams and other communication channels. This scatters tasks, deadlines and responsibilities, makes urgent work harder to prioritise, and requires managers to follow up manually for progress updates. It also limits visibility across audit engagements.
+
+The proposed platform identifies actionable tasks from communications and organises them into personalised dashboards. The project goal is to reduce manual task follow-up time by at least **50%, from four hours to two hours per employee per week**, subject to PoC validation.
+
+## Features and workflows
+
+### Simulated task extraction and prioritisation
+
+- Simulate an incoming task from a mock communication. The prototype adds it to the assignee's task list with a **To Do** status and an **AI Detected** badge, then displays a notification.
+- Review, edit or dismiss detected tasks in **Task Management & Review**. Filter for tasks that need attention to check missing details.
+- View simulated priority recommendations and adjust priorities as needed. Status suggestions require user confirmation before they are applied.
+- Planned extraction capabilities include identifying task owners, deadlines and priorities from Outlook and Teams, and flagging missing information and duplicates.
+
+### Staff dashboard
+
+- View assigned tasks and use dashboard summary cards to open a filtered task list.
+- Update progress, status, deadlines and other task details. Changes are reflected in the dashboard, progress tracker and calendar.
+- Use the weekly or monthly calendar to view task deadlines and Singapore public holidays.
+
+### Manager dashboard
+
+- View personal tasks and authorised team members' tasks, employee workloads and simulated **AI Team Insights**.
+- Monitor overdue work and potential bottlenecks. Open a workload row or summary card to view the associated tasks.
+- View Singapore public holidays in the team calendar, update the manager profile photo and review the team-scoped task audit log.
+- Approve tasks in **Pending Internal Review**. A task can reach 100% progress while still awaiting manager approval to be marked **Completed**.
+
+### Progress and notifications
+
+The task statuses are **To Do**, **In Progress**, **Pending Internal Review**, **Pending Client**, **Pending Clarification** and **Completed**. The project scope also includes task history, deadline and progress reminders, and user approval before outbound reminders are sent.
+
+## Demo accounts
+
+Use the quick-login buttons or enter one of these demo accounts manually.
+
+| Role | Email | Demo password |
+| --- | --- | --- |
+| Staff | hung.nguyen@cla-demo.com | staff123 |
+| Manager | cheryl.tan@cla-demo.com | manager123 |
 These credentials are for simulated authentication. The mock data also includes a second manager, daniel.lim@cla-demo.com, and additional staff accounts.
 
 ### Suggested demo flow
