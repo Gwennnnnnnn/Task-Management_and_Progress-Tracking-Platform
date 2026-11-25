@@ -39,7 +39,7 @@ Develop an **AI-powered task management platform** that automatically identifies
 
 ### Personalised Staff Dashboard
 - View and manage assigned tasks.
-- Monthly and weekly calendar showing task deadlines.
+- Monthly and weekly calendar showing task deadlines and Singapore public holidays.
 - Visual progress bars and task status tracking.
 - AI-assisted task status suggestions.
 
@@ -47,6 +47,9 @@ Develop an **AI-powered task management platform** that automatically identifies
 - View personal tasks and authorised team members' tasks.
 - Monitor employee progress and outstanding work.
 - Identify overdue tasks and potential bottlenecks.
+- Update manager profile photos from the profile page.
+- View Singapore public holidays in the team calendar.
+- Review a team-scoped audit log of task creation, updates, reviews and dismissals.
 - View AI-generated team progress summaries.
 
 ### Task Progress & Notifications
@@ -79,7 +82,7 @@ All four members will contribute to **both frontend and backend development**.
 
 | Member | Main Responsibility | Frontend | Backend |
 |--------|---------------------|----------|---------|
-| **Reanne** | Authentication & Account Integration | Login, user profiles, account settings, role-based navigation | Authentication, user permissions, account management APIs |
+| **Reanne** | Authentication, Audit Logs & Account Integration | Login, user profiles, account settings, role-based navigation, Audit Logs, Access Control | Authentication, user permissions, account management APIs |
 | **Gwen** | AI Task Extraction & Approval Management | Outlook/Teams connection interface, AI task suggestions, user/manager approval, task creation and editing | Microsoft Graph integration, AI task extraction, approval workflow, task APIs, database operations and notifications |
 | **Hung** | Staff Dashboard & AI Task Tracking | Personal dashboard, calendar, progress bars, task filtering, task status updates | Personal task retrieval, progress tracking, AI-assisted status suggestions and task history |
 | **Cheryl** | Manager Dashboard & AI Insights | Manager dashboard, team overview, employee progress tracking, AI summaries | Team task APIs, AI prioritisation, team progress monitoring and AI-generated summaries |

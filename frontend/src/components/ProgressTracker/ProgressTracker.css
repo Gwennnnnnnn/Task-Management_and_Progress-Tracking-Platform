@@ -1,0 +1,109 @@
+.progress-tracker {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.pt-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pt-stepper {
+  display: flex;
+  justify-content: space-between;
+  gap: 4px;
+  margin: 10px 0 4px;
+  position: relative;
+}
+.pt-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  flex: 1;
+  text-align: center;
+  position: relative;
+}
+.pt-step::before {
+  content: '';
+  position: absolute;
+  top: 6px;
+  left: -50%;
+  width: 100%;
+  height: 2px;
+  background: var(--border);
+  z-index: 0;
+}
+.pt-step:first-child::before { display: none; }
+.pt-step.done::before { background: var(--royal); }
+.pt-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid var(--border);
+  z-index: 1;
+}
+.pt-step.done .pt-dot { background: var(--royal); border-color: var(--royal); }
+.pt-step.active .pt-dot { box-shadow: 0 0 0 4px rgba(120, 164, 203, 0.28); }
+.pt-step-label {
+  font-size: 10px;
+  color: var(--muted);
+  line-height: 1.2;
+  max-width: 70px;
+}
+.pt-step.active .pt-step-label { color: var(--royal); font-weight: 600; }
+
+.pt-meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px dashed var(--border);
+}
+
+.pt-notes {
+  margin-top: 12px;
+  padding: 10px 12px;
+  background: var(--soft-blue);
+  border-radius: var(--radius-sm);
+}
+
+.pt-timeline {
+  margin-top: 16px;
+}
+.pt-timeline ul {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.pt-timeline li {
+  display: flex;
+  gap: 12px;
+  position: relative;
+  padding-left: 4px;
+}
+.pt-time-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--royal);
+  margin-top: 4px;
+  flex-shrink: 0;
+  position: relative;
+}
+.pt-timeline li:not(:last-child) .pt-time-dot::after {
+  content: '';
+  position: absolute;
+  top: 12px;
+  left: 4px;
+  width: 2px;
+  height: 22px;
+  background: var(--border);
+}

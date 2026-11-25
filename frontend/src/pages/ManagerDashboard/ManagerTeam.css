@@ -1,0 +1,47 @@
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+.team-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px;
+  box-shadow: var(--shadow-sm);
+  text-align: left;
+  transition: transform 0.16s, box-shadow 0.16s, border-color 0.16s;
+  width: 100%;
+}
+.team-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
+  border-color: var(--royal);
+}
+.team-card-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.tc-info { flex: 1; min-width: 0; }
+.tc-name { font-weight: 600; color: var(--text-strong); font-size: 15px; }
+.tc-title { font-size: 12px; color: var(--muted); }
+
+.team-card-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+}
+.team-card-stats > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.team-card-stats .n { font-size: 18px; font-weight: 800; color: var(--text-strong); }
+.team-card-stats .team-stat-completed { color: #3f8560; }
+.team-card-stats .team-stat-overdue { color: #b4595a; }
+.team-card-stats .l { font-size: 11px; color: var(--muted); margin-top: 2px; }
