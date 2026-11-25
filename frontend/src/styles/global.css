@@ -1,0 +1,1456 @@
+/* =============================================================================
+   CLA TaskFlow — Global styles
+   Professional corporate navy-blue theme (earlier balanced palette).
+   ========================================================================== */
+
+:root {
+  /* ---- Pastel palette (primary theme) ---------------------------------- */
+  --pastel-yellow: #f9e8a2;
+  --pastel-cyan: #b4e1eb;
+  --soft-blue-2: #95bdd7;   /* soft blue */
+  --medium-blue: #78a4cb;   /* medium blue (sidebar / accents) */
+
+  /* Visible pastel-blue primary actions with dark, readable text. */
+  --btn-primary: #a9c9eb;
+  --btn-primary-hover: #98bce3;
+
+  /* AI panel surface — a very pale yellow tint (~22% of the pastel yellow mixed
+     with white) so the inner white cards sit gently against it. */
+  --ai-panel-bg: #fefbee;
+  --ai-panel-border: #f3ecd0;
+
+  /* Readable darker derivatives for text/outlines on white + pastels */
+  --medium-blue-ink: #3f6690;   /* accessible darker variant of medium blue */
+  --accent-ink: #2f5a86;
+
+  /* Brand palette (mapped onto existing variable names so no logic changes) */
+  --navy: #78a4cb;          /* sidebar / logo base (was navy) */
+  --royal: #3f6690;         /* primary accent/active — accessible on white */
+  --blue: #78a4cb;          /* secondary accent */
+  --cyan: #95bdd7;          /* subtle accent */
+  --soft-blue: #eaf4f8;     /* very light cyan tint for soft-accent surfaces */
+  --page-bg: #ffffff;       /* white page background */
+  --card: #ffffff;
+  --text: #243247;          /* dark slate main text */
+  --text-strong: #1f2d40;
+  --muted: #5b6b80;
+  --border: #e3e9f0;
+
+  /* Brand gradients (sidebar, logo). Soft blue -> medium blue. */
+  --brand-gradient: linear-gradient(140deg, #95bdd7 0%, #78a4cb 120%);
+  --brand-gradient-soft: linear-gradient(140deg, #95bdd7 0%, #78a4cb 100%);
+
+  /* ---- Status / priority accent colours (soft pastels) ----------------- */
+  /* Solid values used for dots, progress fills and chart segments. */
+  --red: #efa3a3;           /* high priority / overdue */
+  --amber: #f6c58c;         /* pending / warning */
+  --grey: #d8dee7;          /* to do */
+  --green: #a4d9ba;         /* completed */
+  --purple: #c7b5e9;        /* pending client */
+  --inprogress: #afc9e4;    /* in progress */
+
+  /* Darker "ink" variants for readable text/labels on light pastel badges. */
+  --red-ink: #b4595a;
+  --amber-ink: #a76b2e;
+  --grey-ink: #5b6b80;
+  --green-ink: #3f8560;
+  --purple-ink: #6b549e;
+  --inprogress-ink: #3f6690;
+
+  /* Effects */
+  --radius: 14px;
+  --radius-sm: 10px;
+  --shadow-sm: 0 1px 2px rgba(37, 56, 79, 0.06);
+  --shadow: 0 4px 16px rgba(37, 56, 79, 0.08);
+  --shadow-lg: 0 12px 32px rgba(37, 56, 79, 0.14);
+  --sidebar-w: 256px;
+  --header-h: 68px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  background: var(--page-bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--text-strong);
+  margin: 0;
+  font-weight: 700;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 14px;
+}
+
+/* ---- Buttons ------------------------------------------------------------ */
+
+/* All button styling lives here (single source of truth). Variants:
+   .btn-primary  — main accent action (medium blue)
+   .btn-navy     — brand alias of primary (kept for existing markup)
+   .btn-success  — positive/confirm action (softened green)
+   .btn-ghost    — neutral / outline secondary action
+   .btn-danger   — subtle destructive action (soft red)
+   .btn-sm       — compact size · .btn-icon — square icon-only button      */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  padding: 9px 16px;
+  height: 38px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+  transition: transform 0.16s ease, box-shadow 0.16s ease, background 0.16s ease, border-color 0.16s ease, color 0.16s ease;
+  white-space: nowrap;
+}
+.btn svg { flex-shrink: 0; }
+.btn:active {
+  transform: translateY(1px);
+}
+.btn-primary {
+  background: var(--btn-primary);
+  border-color: #96b9df;
+  color: #294c72;
+}
+.btn-primary:hover {
+  background: var(--btn-primary-hover);
+  border-color: #86add8;
+  color: #203f61;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(77, 121, 171, 0.24);
+}
+/* Brand button — alias of primary (same soft blue) */
+.btn-navy {
+  background: var(--btn-primary);
+  border-color: #96b9df;
+  color: #294c72;
+}
+.btn-navy:hover {
+  background: var(--btn-primary-hover);
+  border-color: #86add8;
+  color: #203f61;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(77, 121, 171, 0.24);
+}
+.btn-ghost {
+  background: #fff;
+  border-color: var(--border);
+  color: var(--text);
+}
+.btn-ghost:hover {
+  background: var(--soft-blue);
+  border-color: var(--soft-blue-2);
+  color: #1f2d40;
+}
+.btn-success {
+  background: var(--green);
+  color: #1f3a2a;
+}
+.btn-success:hover {
+  background: #8fcfab;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(164, 217, 186, 0.5);
+}
+.btn-danger {
+  background: #fff;
+  border-color: #eccaca;
+  color: var(--red-ink);
+}
+.btn-danger:hover {
+  background: #fbeaea;
+  border-color: #e0b3b3;
+}
+.btn-sm {
+  height: 32px;
+  padding: 0 12px;
+  font-size: 13px;
+}
+/* Square icon-only button (e.g. destructive trash action) */
+.btn-icon {
+  width: 38px;
+  padding: 0;
+}
+.btn-icon.btn-sm {
+  width: 32px;
+}
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+/* Consistent footer / action row for grouped buttons */
+.btn-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.btn-group.end { justify-content: flex-end; }
+.btn-group .spacer { margin-left: auto; }
+
+/* ---- Cards -------------------------------------------------------------- */
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ---- Badges ------------------------------------------------------------- */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+.badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+
+/* Priority — light pastel backgrounds, darker ink text for readability */
+.badge.priority-High { background: #fbe9e9; color: var(--red-ink); }
+.badge.priority-Medium { background: #fdefdf; color: var(--amber-ink); }
+.badge.priority-Low { background: #eef1f5; color: var(--grey-ink); }
+
+/* Status */
+.badge.status-ToDo { background: #eef1f5; color: var(--grey-ink); }
+.badge.status-InProgress { background: #e7eefa; color: var(--inprogress-ink); }
+.badge.status-PendingInternalReview { background: #fdefdf; color: var(--amber-ink); }
+.badge.status-PendingClient { background: #f1ecfa; color: var(--purple-ink); }
+.badge.status-PendingClarification { background: #fdefdf; color: var(--amber-ink); }
+.badge.status-Completed { background: #e4f4ec; color: var(--green-ink); }
+
+.badge.source { background: #f4f7fa; color: var(--muted); border: 1px solid var(--border); }
+
+/* ---- Progress bar ------------------------------------------------------- */
+
+.progress-track {
+  height: 8px;
+  background: #eaeff4;
+  border-radius: 999px;
+  overflow: hidden;
+  width: 100%;
+}
+.progress-fill {
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.5s ease;
+}
+
+/* ---- Avatar ------------------------------------------------------------- */
+
+.avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  overflow: hidden;
+  color: #fff;
+  font-weight: 700;
+  font-size: 13px;
+  flex-shrink: 0;
+  user-select: none;
+}
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---- Forms -------------------------------------------------------------- */
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+.field label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-strong);
+}
+.input,
+.select,
+.textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: #fff;
+  color: var(--text);
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.input:focus,
+.select:focus,
+.textarea:focus {
+  outline: none;
+  border-color: var(--medium-blue);
+  box-shadow: 0 0 0 3px rgba(120, 164, 203, 0.28);
+}
+.textarea {
+  resize: vertical;
+  min-height: 72px;
+}
+
+/* ---- Utility ------------------------------------------------------------ */
+
+.row { display: flex; align-items: center; }
+.between { justify-content: space-between; }
+.gap-8 { gap: 8px; }
+.gap-12 { gap: 12px; }
+.gap-16 { gap: 16px; }
+.wrap { flex-wrap: wrap; }
+.muted { color: var(--muted); }
+.strong { color: var(--text-strong); font-weight: 600; }
+.text-sm { font-size: 13px; }
+.text-xs { font-size: 12px; }
+
+/* ---- Animations --------------------------------------------------------- */
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-in {
+  animation: fadeIn 0.3s ease both;
+}
+@keyframes sparkle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.85); }
+}
+
+/* ---- Scrollbar ---------------------------------------------------------- */
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-thumb { background: #c4d3e0; border-radius: 999px; border: 2px solid var(--page-bg); }
+::-webkit-scrollbar-thumb:hover { background: var(--soft-blue-2); }
+
+/* =============================================================================
+   App shell + shared page layout
+   ========================================================================== */
+
+.app-shell {
+  min-height: 100vh;
+}
+.app-main {
+  margin-left: var(--sidebar-w);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.app-content {
+  padding: 24px;
+  flex: 1;
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+@media (max-width: 900px) {
+  .app-main { margin-left: 0; }
+  .app-content { padding: 16px; }
+}
+
+/* ---- Section headings --------------------------------------------------- */
+
+.section-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 26px 0 14px;
+  flex-wrap: wrap;
+}
+.section-title:first-child { margin-top: 0; }
+.section-title h3 { font-size: 16px; }
+.section-title .sub { font-size: 13px; color: var(--muted); }
+
+.tasks-page-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 16px;
+}
+
+/* ---- Stat cards --------------------------------------------------------- */
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 16px;
+}
+.stat-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  transition: transform 0.16s, box-shadow 0.16s;
+}
+.stat-card:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+.stat-card.clickable { cursor: pointer; }
+.stat-card.clickable:hover { border-color: var(--blue); }
+.stat-card.active {
+  border-color: var(--medium-blue);
+  box-shadow: 0 0 0 2px rgba(120, 164, 203, 0.35), var(--shadow);
+}
+.stat-icon {
+  width: 46px; height: 46px; border-radius: 12px;
+  display: grid; place-items: center; flex-shrink: 0;
+}
+.stat-value { font-size: 26px; font-weight: 800; color: var(--text-strong); line-height: 1; }
+.stat-label { font-size: 13px; color: var(--muted); margin-top: 4px; }
+.stat-hint { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+/* ---- Task grids --------------------------------------------------------- */
+
+.task-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+}
+
+/* Two-column dashboard layout. A consistent 24px gutter separates the columns
+   both vertically and horizontally; spacing lives on the grid so it holds as
+   content is added or removed. */
+.two-col {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+@media (max-width: 1050px) {
+  .two-col { grid-template-columns: 1fr; }
+}
+/* Mobile: tighten the gutter to 16px. */
+@media (max-width: 640px) {
+  .two-col { gap: 16px; }
+}
+
+/* A dashboard column: stacks its main containers with a consistent 24px gap so
+   siblings (e.g. My priority tasks / Team completion / Employee workload, or
+   My task breakdown / AI Task Prioritisation / AI Team Insights) never touch. */
+.dash-col {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-width: 0;
+}
+@media (max-width: 640px) {
+  .dash-col { gap: 16px; }
+}
+
+/* A single dashboard group (a heading plus its content, e.g. the priority task
+   list) that acts as one spacing unit within a .dash-col. */
+.dash-group {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+/* The section heading inside a group owns no outer margin — the column gap and
+   the group gap handle all spacing. */
+.dash-col > .section-title,
+.dash-group > .section-title {
+  margin: 0;
+}
+
+/* ---- Toolbar (search + filters) ---------------------------------------- */
+
+.toolbar {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 18px;
+}
+.search-box {
+  position: relative;
+  flex: 1;
+  min-width: 220px;
+}
+.search-box .search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--muted);
+}
+.search-box input {
+  width: 100%;
+  padding: 10px 12px 10px 38px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: #fff;
+}
+.search-box input:focus {
+  outline: none;
+  border-color: var(--medium-blue);
+  box-shadow: 0 0 0 3px rgba(120, 164, 203, 0.28);
+}
+.toolbar select {
+  padding: 9px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: #fff;
+  color: var(--text);
+  font-weight: 500;
+}
+
+/* ---- Empty state -------------------------------------------------------- */
+
+.empty-state {
+  text-align: center;
+  padding: 48px 20px;
+  color: var(--muted);
+}
+.empty-state svg { opacity: 0.4; margin-bottom: 10px; }
+
+/* ---- Table -------------------------------------------------------------- */
+
+.table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: #fff;
+}
+table.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 720px;
+}
+.data-table th {
+  text-align: left;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--muted);
+  padding: 12px 16px;
+  background: var(--page-bg);
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+.data-table td {
+  padding: 13px 16px;
+  border-bottom: 1px solid var(--border);
+  font-size: 13.5px;
+  vertical-align: middle;
+}
+.data-table tr:last-child td { border-bottom: none; }
+.data-table tbody tr { cursor: pointer; transition: background 0.12s; }
+.data-table tbody tr:hover { background: var(--soft-blue); }
+
+/* ---- Donut legend ------------------------------------------------------- */
+
+.donut-legend { flex: 1; min-width: 0; }
+
+/* ---- Panel card --------------------------------------------------------- */
+
+.panel {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: var(--shadow-sm);
+}
+.panel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+  gap: 10px;
+}
+.panel-head h3 { font-size: 15px; }
+
+/* ---- Demo banner -------------------------------------------------------- */
+
+.demo-banner {
+  background: #fdf6e0;
+  border: 1px solid #f0dca0;
+  color: #7a6520;
+  border-radius: var(--radius-sm);
+  padding: 8px 14px;
+  font-size: 12.5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ---- "New" badge -------------------------------------------------------- */
+
+.new-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--medium-blue-ink);
+  background: var(--pastel-cyan);
+  border: 1px solid #9bd2e0;
+}
+.new-badge svg { color: var(--medium-blue-ink); }
+.new-badge-xs { padding: 2px 8px; font-size: 11px; }
+
+/* ---- Active filter chip ------------------------------------------------- */
+
+.active-filter-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--soft-blue);
+  border: 1px solid #c7e3ec;
+  color: var(--medium-blue-ink);
+  border-radius: 999px;
+  padding: 6px 8px 6px 14px;
+  font-size: 13px;
+  margin-bottom: 16px;
+}
+.active-filter-chip button {
+  border: none;
+  background: rgba(120, 164, 203, 0.22);
+  color: var(--medium-blue-ink);
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  font-size: 15px;
+  line-height: 1;
+  display: grid;
+  place-items: center;
+}
+.active-filter-chip button:hover { background: rgba(120, 164, 203, 0.38); }
+
+/* ---- Clickable workload row (manager overview) -------------------------- */
+
+.workload-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  background: none;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  padding: 8px 10px;
+  text-align: left;
+  transition: background 0.14s, border-color 0.14s, transform 0.14s;
+}
+.workload-row:hover {
+  background: var(--soft-blue);
+  border-color: #c7e3ec;
+  transform: translateX(2px);
+}
+
+/* ---- "New" quick-filter button (Tasks toolbar) -------------------------- */
+
+.new-filter-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: #fff;
+  color: var(--text);
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.16s ease;
+}
+.new-filter-btn:hover {
+  border-color: var(--soft-blue-2);
+  color: var(--medium-blue-ink);
+  background: var(--pastel-cyan);
+}
+.new-filter-btn.active {
+  background: var(--medium-blue);
+  border-color: var(--medium-blue);
+  color: #1f2d40;
+}
+.new-filter-btn .nfb-count {
+  background: var(--medium-blue);
+  color: #1f2d40;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 1px 7px;
+  line-height: 1.4;
+}
+.new-filter-btn.active .nfb-count {
+  background: rgba(31, 45, 64, 0.16);
+}
+
+/* ---- Centred dialog (create task) --------------------------------------- */
+/* Reuses .modal-overlay (fixed full-viewport) but centres a compact panel. */
+
+.modal-overlay.center {
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.dialog-panel {
+  width: 480px;
+  max-width: 100%;
+  max-height: 90vh;
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: fadeIn 0.2s ease;
+}
+.dialog-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+}
+.dialog-head h3 { font-size: 17px; }
+.dialog-body {
+  padding: 18px 20px;
+  overflow-y: auto;
+}
+.dialog-foot {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 6px;
+}
+
+/* ---- Custom platform dropdown (opens downward, themeable) --------------- */
+
+.platform-select {
+  position: relative;
+  width: 100%;
+}
+.platform-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: #fff;
+  color: var(--text);
+  font-size: 14px;
+  text-align: left;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.platform-trigger:hover { border-color: var(--soft-blue-2); }
+.platform-trigger:focus-visible,
+.platform-select:focus-within .platform-trigger {
+  outline: none;
+  border-color: var(--medium-blue);
+  box-shadow: 0 0 0 3px rgba(120, 164, 203, 0.28);
+}
+.platform-caret { color: var(--muted); transition: transform 0.16s ease; flex-shrink: 0; }
+.platform-caret.up { transform: rotate(180deg); }
+
+.platform-menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  z-index: 20;
+  margin: 0;
+  padding: 6px;
+  list-style: none;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-lg);
+  max-height: 232px;
+  overflow-y: auto;
+  animation: fadeIn 0.14s ease;
+}
+.platform-menu li { margin: 0; }
+.platform-option {
+  width: 100%;
+  text-align: left;
+  padding: 9px 10px;
+  border: none;
+  border-radius: 8px;
+  background: none;
+  color: var(--text);
+  font-size: 13.5px;
+  font-weight: 500;
+}
+.platform-option:hover { background: var(--soft-blue); color: var(--text-strong); }
+.platform-option.selected {
+  background: var(--soft-blue);
+  color: var(--accent-ink);
+  font-weight: 700;
+}
+
+/* ---- Persistent dashboard dark theme ----------------------------------- */
+
+.app-shell[data-theme='dark'] {
+  color-scheme: light;
+  --page-bg: #292e34;
+  --card: #363c43;
+  --text: #dce0e5;
+  --text-strong: #f0f2f5;
+  --muted: #b2b8c0;
+  --border: #4a5058;
+  --soft-blue: #414a54;
+  --soft-blue-2: #718395;
+  --medium-blue: #8ab1d5;
+  --medium-blue-ink: #c4d5e5;
+  --royal: #a3bed8;
+  /* Brighter red/green (and other) accents so badges, buttons and status
+     indicators read clearly against the dark surfaces — soft, not neon. */
+  --red: #f08a86;
+  --green: #74c99a;
+  --red-ink: #ffb3ae;
+  --amber-ink: #ffd98a;
+  --grey-ink: #c5ced8;
+  --green-ink: #a9e8c2;
+  --purple-ink: #d1baf4;
+  --inprogress-ink: #bddaf6;
+  /* Brighter primary blue so buttons stand out from dark containers while
+     staying on-theme. */
+  --btn-primary: #6f93bb;
+  --btn-primary-hover: #80a4cb;
+  --ai-panel-bg: #45434f;
+  --ai-panel-border: #625e6d;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.2);
+  --shadow: 0 4px 16px rgba(0, 0, 0, 0.22);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.32);
+  background: var(--page-bg);
+}
+
+.app-shell[data-theme='dark'] .stat-card,
+.app-shell[data-theme='dark'] .panel,
+.app-shell[data-theme='dark'] .task-card,
+.app-shell[data-theme='dark'] .review-card,
+.app-shell[data-theme='dark'] .team-card,
+.app-shell[data-theme='dark'] .table-wrap,
+.app-shell[data-theme='dark'] .dialog-panel,
+.app-shell[data-theme='dark'] .search-box input,
+.app-shell[data-theme='dark'] .toolbar select,
+.app-shell[data-theme='dark'] .input,
+.app-shell[data-theme='dark'] .select,
+.app-shell[data-theme='dark'] .textarea,
+.app-shell[data-theme='dark'] .new-filter-btn:not(.active),
+.app-shell[data-theme='dark'] .notif-panel,
+.app-shell[data-theme='dark'] .notif-item,
+.app-shell[data-theme='dark'] .modal-head,
+.app-shell[data-theme='dark'] .modal-section,
+.app-shell[data-theme='dark'] .modal-foot,
+.app-shell[data-theme='dark'] .ai-rec,
+.app-shell[data-theme='dark'] .ai-insight-card,
+.app-shell[data-theme='dark'] .ai-sim-note,
+.app-shell[data-theme='dark'] .ai-pill,
+.app-shell[data-theme='dark'] .review-foot,
+.app-shell[data-theme='dark'] .review-tabs,
+.app-shell[data-theme='dark'] .cal-cell:not(.empty),
+.app-shell[data-theme='dark'] .cal-task-list li,
+.app-shell[data-theme='dark'] .kanban-card,
+.app-shell[data-theme='dark'] .kanban-col-empty,
+.app-shell[data-theme='dark'] .kanban-col-count {
+  background-color: var(--card);
+  border-color: var(--border);
+  color: var(--text);
+}
+
+.app-shell[data-theme='dark'] .app-main,
+.app-shell[data-theme='dark'] .app-content,
+.app-shell[data-theme='dark'] .cal-view-toggle,
+.app-shell[data-theme='dark'] .cal-view-toggle button.active,
+.app-shell[data-theme='dark'] .review-tabs button,
+.app-shell[data-theme='dark'] .dialog-head {
+  background-color: var(--page-bg);
+  color: var(--text);
+}
+
+/* AI Task Prioritisation — the ranking badge keeps its light cyan background,
+   so its number/icon must be dark blue to be readable (the pale ink was
+   invisible in dark mode). */
+.app-shell[data-theme='dark'] .ai-rec .rank,
+.app-shell[data-theme='dark'] .ai-rec .rank svg {
+  color: #174a73;
+}
+
+/* AI Team Insights — the tinted icon squares need darker backgrounds in dark
+   mode so the bright accent icons on them stay visible. */
+.app-shell[data-theme='dark'] .ai-insight-card.danger .ic {
+  background: #59393c;
+  color: var(--red-ink);
+}
+.app-shell[data-theme='dark'] .ai-insight-card.warning .ic {
+  background: #574936;
+  color: var(--amber-ink);
+}
+.app-shell[data-theme='dark'] .ai-insight-card.info .ic {
+  background: #35495b;
+  color: var(--inprogress-ink);
+}
+
+/* Primary action — brighter blue with light, readable text so it stands out
+   against dark containers. */
+.app-shell[data-theme='dark'] .btn-primary,
+.app-shell[data-theme='dark'] .btn-navy {
+  background: var(--btn-primary);
+  border-color: #89aace;
+  color: #0f1b29;
+}
+.app-shell[data-theme='dark'] .btn-primary:hover,
+.app-shell[data-theme='dark'] .btn-navy:hover {
+  background: var(--btn-primary-hover);
+  border-color: #9bbbdd;
+  color: #0b1522;
+}
+.app-shell[data-theme='dark'] .btn-ghost {
+  background: var(--card);
+  border-color: var(--border);
+  color: var(--text);
+}
+.app-shell[data-theme='dark'] .btn-ghost:hover,
+.app-shell[data-theme='dark'] .new-filter-btn:hover {
+  background: var(--soft-blue);
+  color: var(--text-strong);
+}
+/* Positive action — brighter, soft green with clear text. */
+.app-shell[data-theme='dark'] .btn-success {
+  background: #2f5742;
+  border-color: #4f8468;
+  color: #b6f0cd;
+}
+.app-shell[data-theme='dark'] .btn-success:hover {
+  background: #37654c;
+  border-color: #62a07f;
+  color: #ccf6dc;
+}
+/* Destructive action — brighter, soft red with clear text. */
+.app-shell[data-theme='dark'] .btn-danger {
+  background: #5e383b;
+  border-color: #9a5659;
+  color: #ffb3ae;
+}
+.app-shell[data-theme='dark'] .btn-danger:hover {
+  background: #6f4245;
+  border-color: #b5676b;
+  color: #ffc9c5;
+}
+/* Disabled state stays visibly muted and distinct from active buttons. */
+.app-shell[data-theme='dark'] .btn:disabled {
+  opacity: 0.45;
+}
+
+.app-shell[data-theme='dark'] .kanban-col {
+  background: #30363d;
+  border-color: var(--border);
+}
+.app-shell[data-theme='dark'] .kanban-col.over {
+  background: var(--soft-blue);
+}
+.app-shell[data-theme='dark'] .kanban-due.danger {
+  color: #ff6b6b;
+}
+.app-shell[data-theme='dark'] .kanban-due.warn {
+  color: #ffd166;
+}
+.app-shell[data-theme='dark'] .due-chip.danger,
+.app-shell[data-theme='dark'] .due-overdue {
+  color: var(--red-ink);
+}
+.app-shell[data-theme='dark'] .due-chip.warn {
+  color: var(--amber-ink);
+}
+.app-shell[data-theme='dark'] .team-card-stats .team-stat-completed {
+  color: var(--green-ink);
+}
+.app-shell[data-theme='dark'] .team-card-stats .team-stat-overdue {
+  color: var(--red-ink);
+}
+.app-shell[data-theme='dark'] .badge.priority-High {
+  background: #59393c;
+  color: var(--red-ink);
+}
+.app-shell[data-theme='dark'] .badge.priority-Medium,
+.app-shell[data-theme='dark'] .badge.status-PendingInternalReview,
+.app-shell[data-theme='dark'] .badge.status-PendingClarification {
+  background: #574936;
+  color: var(--amber-ink);
+}
+.app-shell[data-theme='dark'] .badge.priority-Low,
+.app-shell[data-theme='dark'] .badge.status-ToDo {
+  background: #454c54;
+  color: var(--grey-ink);
+}
+.app-shell[data-theme='dark'] .badge.status-InProgress {
+  background: #35495b;
+  color: var(--inprogress-ink);
+}
+.app-shell[data-theme='dark'] .badge.status-PendingClient {
+  background: #493d5c;
+  color: var(--purple-ink);
+}
+.app-shell[data-theme='dark'] .badge.status-Completed {
+  background: #354d40;
+  color: var(--green-ink);
+}
+.app-shell[data-theme='dark'] .badge.source {
+  background: #41474e;
+  color: var(--muted);
+}
+/* New badge: keep the light cyan background but use a clearly readable dark
+   blue for the text and sparkle icon (the pale ink was hard to see). */
+.app-shell[data-theme='dark'] .new-badge,
+.app-shell[data-theme='dark'] .new-badge svg {
+  color: #174a73;
+}
+.app-shell[data-theme='dark'] .notif-item.unread {
+  background: #40464e;
+}
+.app-shell[data-theme='dark'] .pt-dot {
+  background: var(--card);
+}
+.app-shell[data-theme='dark'] .review-tabs button.active {
+  background: var(--royal);
+  color: #122235;
+}
+.app-shell[data-theme='dark'] .table-wrap {
+  background: var(--card);
+}
+.app-shell[data-theme='dark'] .icon-btn {
+  background: var(--card);
+  border-color: var(--border);
+  color: var(--text);
+}
+.app-shell[data-theme='dark'] .icon-btn:hover {
+  background: var(--soft-blue);
+  border-color: var(--royal);
+  color: var(--royal);
+}
+.app-shell[data-theme='dark'] .manager-ai-panel {
+  background: #45434f;
+  border-color: #686373;
+}
+.app-shell[data-theme='dark'] .manager-ai-panel .ai-panel-head .spark {
+  background: linear-gradient(135deg, #b5a9c7, #8e9db5);
+  color: #302d38;
+}
+.app-shell[data-theme='dark'] .panel svg text {
+  fill: var(--text-strong);
+}
+
+/* =============================================================================
+   Dark mode — brighten dashboard & calendar accent colours
+   The donut segments, progress fills and status dots are coloured by inline
+   pastel hex values (shared with light mode), which look muted on the dark
+   surfaces. Lift their saturation/brightness so they read clearly, keeping the
+   relative hues intact. Scoped to dark mode only — light mode is untouched.
+   ========================================================================== */
+
+/* Donut chart segments (SVG strokes) — brighten the coloured arcs, leave the
+   neutral track ring and centre text alone. */
+.app-shell[data-theme='dark'] .panel svg circle[stroke-dasharray] {
+  filter: saturate(1.5) brightness(1.22);
+}
+
+/* Progress bar fills (dashboard cards, trackers, employee workload). */
+.app-shell[data-theme='dark'] .progress-fill {
+  filter: saturate(1.45) brightness(1.2);
+}
+.app-shell[data-theme='dark'] .progress-track {
+  background: #2b333c;
+}
+
+/* Status / priority dots on badges and column headers. */
+.app-shell[data-theme='dark'] .badge-dot,
+.app-shell[data-theme='dark'] .kanban-col-dot,
+.app-shell[data-theme='dark'] .donut-legend .badge-dot {
+  filter: saturate(1.5) brightness(1.25);
+}
+
+/* ---- Calendar ----------------------------------------------------------- */
+
+/* In-cell task chips: dark surfaces with bright, readable accents instead of
+   the light pastel backgrounds. */
+.app-shell[data-theme='dark'] .cal-task-preview {
+  background: #324a63;
+  border-left-color: #8ab1d5;
+  color: #d7e6f5;
+}
+.app-shell[data-theme='dark'] .cal-task-preview.overdue {
+  background: #532f33;
+  border-left-color: #f08a86;
+  color: #ffb3ae;
+}
+.app-shell[data-theme='dark'] .cal-task-preview.completed {
+  background: #2f5742;
+  border-left-color: #74c99a;
+  color: #a9e8c2;
+}
+
+/* Overdue day cell / selected-day task row backgrounds (a touch brighter). */
+.app-shell[data-theme='dark'] .cal-cell.has-overdue,
+.app-shell[data-theme='dark'] .cal-task-list li.overdue {
+  background: #532f33;
+}
+.app-shell[data-theme='dark'] .cal-task-list li.overdue {
+  border-left-color: #f08a86;
+}
+
+/* Selected cell gets a clearer blue highlight. */
+.app-shell[data-theme='dark'] .cal-cell.selected {
+  background: #34495d;
+  border-color: var(--medium-blue);
+}
+.app-shell[data-theme='dark'] .cal-cell:hover {
+  background: #34495d;
+  border-color: var(--royal);
+}
+
+/* "Today" marker — brighter blue chip with dark text. */
+.app-shell[data-theme='dark'] .cal-cell.today .cal-date {
+  background: #8ab1d5;
+  color: #142337;
+}
+
+/* Holidays: amber accents that read on dark. */
+.app-shell[data-theme='dark'] .cal-cell.has-holiday:not(.selected):not(.has-overdue) {
+  background: #3f3620;
+}
+.app-shell[data-theme='dark'] .cal-cell.has-holiday {
+  border-bottom-color: #c89837;
+}
+.app-shell[data-theme='dark'] .cal-holiday-label {
+  color: #ffd98a;
+}
+.app-shell[data-theme='dark'] .cal-holiday-list li {
+  background: #3f3620;
+  border-color: #6b5a30;
+  color: #ffd98a;
+}
+.app-shell[data-theme='dark'] .cal-holiday-marker {
+  background: #e0b24e;
+}
+.app-shell[data-theme='dark'] .cal-holiday-kind {
+  color: #cbb47e;
+}
+
+/* Calendar view toggle active pill. */
+.app-shell[data-theme='dark'] .cal-view-toggle button.active {
+  background: var(--royal);
+  color: #122235;
+}
+
+body[data-theme='dark'] {
+  --page-bg: #292e34;
+  --card: #363c43;
+  --text: #dce0e5;
+  --text-strong: #f0f2f5;
+  --muted: #b2b8c0;
+  --border: #4a5058;
+  --soft-blue: #414a54;
+  --medium-blue-ink: #c4d5e5;
+  --royal: #a3bed8;
+  --red: #f08a86;
+  --green: #74c99a;
+  --red-ink: #ffb3ae;
+  --green-ink: #a9e8c2;
+  --ai-panel-bg: #45434f;
+  --ai-panel-border: #625e6d;
+}
+
+body[data-theme='dark'] .modal-overlay {
+  background: rgba(8, 12, 17, 0.72);
+}
+body[data-theme='dark'] .modal-panel {
+  color-scheme: dark;
+  background: var(--page-bg);
+  color: var(--text);
+}
+body[data-theme='dark'] .modal-head,
+body[data-theme='dark'] .modal-section,
+body[data-theme='dark'] .modal-foot {
+  background: var(--card);
+  color: var(--text);
+}
+body[data-theme='dark'] .modal-head h3,
+body[data-theme='dark'] .modal-section h4,
+body[data-theme='dark'] .detail-item .val {
+  color: var(--text-strong);
+}
+body[data-theme='dark'] .modal-close {
+  background: var(--page-bg);
+  border-color: var(--border);
+  color: var(--text);
+}
+body[data-theme='dark'] .modal-close:hover {
+  background: #59393c;
+  border-color: #9a5659;
+  color: #ffaaa5;
+}
+body[data-theme='dark'] .ai-pill {
+  background: #41474e;
+  border-color: var(--border);
+  color: var(--medium-blue-ink);
+}
+body[data-theme='dark'] .needs-review-banner {
+  background: #574936;
+  border-color: #786445;
+  color: #ffd27b;
+}
+body[data-theme='dark'] .modal-section .input,
+body[data-theme='dark'] .modal-section .select,
+body[data-theme='dark'] .modal-section .textarea {
+  background: #292e34;
+  border-color: var(--border);
+  color: var(--text);
+}
+body[data-theme='dark'] .source-box {
+  background: #414a54;
+  color: var(--text);
+}
+body[data-theme='dark'] .modal-panel .badge.priority-High {
+  background: #59393c;
+  color: #ffaaa5;
+}
+body[data-theme='dark'] .modal-panel .badge.priority-Medium,
+body[data-theme='dark'] .modal-panel .badge.status-PendingInternalReview,
+body[data-theme='dark'] .modal-panel .badge.status-PendingClarification {
+  background: #574936;
+  color: #ffd27b;
+}
+body[data-theme='dark'] .modal-panel .badge.priority-Low,
+body[data-theme='dark'] .modal-panel .badge.status-ToDo {
+  background: #454c54;
+  color: #c5ced8;
+}
+body[data-theme='dark'] .modal-panel .badge.status-InProgress {
+  background: #35495b;
+  color: #bddaf6;
+}
+body[data-theme='dark'] .modal-panel .badge.status-PendingClient {
+  background: #493d5c;
+  color: #d1baf4;
+}
+body[data-theme='dark'] .modal-panel .badge.status-Completed {
+  background: #354d40;
+  color: #9be0b4;
+}
+body[data-theme='dark'] .modal-panel .badge.source {
+  background: #41474e;
+  color: var(--muted);
+}
+/* New badge inside the modal (portaled to body): same dark-blue text/icon on
+   the light cyan background. */
+body[data-theme='dark'] .modal-panel .new-badge,
+body[data-theme='dark'] .modal-panel .new-badge svg {
+  color: #174a73;
+}
+body[data-theme='dark'] .modal-panel .pt-dot {
+  background: var(--card);
+}
+body[data-theme='dark'] .modal-panel .btn-primary,
+body[data-theme='dark'] .modal-panel .btn-navy {
+  background: #58718a;
+  border-color: #71889f;
+  color: var(--text-strong);
+}
+body[data-theme='dark'] .modal-panel .btn-primary:hover,
+body[data-theme='dark'] .modal-panel .btn-navy:hover {
+  background: #66819b;
+  border-color: #8299af;
+  color: #fff;
+}
+body[data-theme='dark'] .modal-panel .btn-ghost {
+  background: var(--card);
+  border-color: var(--border);
+  color: var(--text);
+}
+body[data-theme='dark'] .modal-panel .btn-ghost:hover {
+  background: var(--soft-blue);
+  border-color: #65717d;
+  color: var(--text-strong);
+}
+body[data-theme='dark'] .modal-panel .btn-success {
+  background: #354d40;
+  border-color: #52715e;
+  color: #9be0b4;
+}
+body[data-theme='dark'] .modal-panel .btn-success:hover {
+  background: #405c4b;
+  border-color: #64866f;
+  color: #b6efc8;
+}
+body[data-theme='dark'] .modal-panel .btn-danger {
+  background: #59393c;
+  border-color: #795053;
+  color: #ffaaa5;
+}
+body[data-theme='dark'] .modal-panel .btn-danger:hover {
+  background: #6a4145;
+  border-color: #91565a;
+  color: #ffc0bc;
+}
+
+/* ---- Create-task dialog (portaled to body) — dark mode ------------------ */
+/* This dialog renders through a portal to document.body, so it sits OUTSIDE
+   .app-shell and the app-shell dark rules don't reach it. Style it under the
+   body[data-theme='dark'] scope, mirroring the task modal treatment. */
+body[data-theme='dark'] .modal-overlay.center {
+  background: rgba(8, 12, 17, 0.72);
+}
+body[data-theme='dark'] .dialog-panel {
+  color-scheme: dark;
+  background: var(--card);
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+body[data-theme='dark'] .dialog-head {
+  background: var(--card);
+  border-bottom-color: var(--border);
+}
+body[data-theme='dark'] .dialog-head h3 {
+  color: var(--text-strong);
+}
+body[data-theme='dark'] .dialog-body {
+  background: var(--card);
+  color: var(--text);
+}
+/* Form labels were nearly invisible (pale text on white). */
+body[data-theme='dark'] .dialog-body .field label {
+  color: var(--text-strong);
+}
+/* Inputs, selects and textareas: dark surface with readable text. */
+body[data-theme='dark'] .dialog-panel .input,
+body[data-theme='dark'] .dialog-panel .select,
+body[data-theme='dark'] .dialog-panel .textarea {
+  background: #292e34;
+  border-color: var(--border);
+  color: var(--text);
+}
+body[data-theme='dark'] .dialog-panel .input::placeholder,
+body[data-theme='dark'] .dialog-panel .textarea::placeholder {
+  color: var(--muted);
+}
+body[data-theme='dark'] .dialog-panel .input:focus,
+body[data-theme='dark'] .dialog-panel .select:focus,
+body[data-theme='dark'] .dialog-panel .textarea:focus {
+  border-color: var(--medium-blue);
+  box-shadow: 0 0 0 3px rgba(138, 177, 213, 0.28);
+}
+/* Close button. */
+body[data-theme='dark'] .dialog-panel .modal-close {
+  background: var(--page-bg);
+  border-color: var(--border);
+  color: var(--text);
+}
+body[data-theme='dark'] .dialog-panel .modal-close:hover {
+  background: #59393c;
+  border-color: #9a5659;
+  color: #ffaaa5;
+}
+/* Footer buttons — same bright, readable treatment as elsewhere in dark mode. */
+body[data-theme='dark'] .dialog-panel .btn-primary {
+  background: #6f93bb;
+  border-color: #89aace;
+  color: #0f1b29;
+}
+body[data-theme='dark'] .dialog-panel .btn-primary:hover {
+  background: #80a4cb;
+  border-color: #9bbbdd;
+  color: #0b1522;
+}
+body[data-theme='dark'] .dialog-panel .btn-ghost {
+  background: var(--card);
+  border-color: var(--border);
+  color: var(--text);
+}
+body[data-theme='dark'] .dialog-panel .btn-ghost:hover {
+  background: var(--soft-blue);
+  border-color: #65717d;
+  color: var(--text-strong);
+}
+/* Disabled primary (empty title) stays visibly muted but on-theme. */
+body[data-theme='dark'] .dialog-panel .btn:disabled {
+  opacity: 0.5;
+}
+
+/* Custom platform dropdown — dark mode (dialog is portaled to body). */
+body[data-theme='dark'] .platform-trigger {
+  background: #292e34;
+  border-color: var(--border);
+  color: var(--text);
+}
+body[data-theme='dark'] .platform-trigger:hover {
+  border-color: #65717d;
+}
+body[data-theme='dark'] .platform-select:focus-within .platform-trigger,
+body[data-theme='dark'] .platform-trigger:focus-visible {
+  border-color: var(--medium-blue);
+  box-shadow: 0 0 0 3px rgba(138, 177, 213, 0.3);
+}
+body[data-theme='dark'] .platform-caret {
+  color: var(--muted);
+}
+body[data-theme='dark'] .platform-menu {
+  background: #30363d;
+  border-color: var(--border);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+}
+body[data-theme='dark'] .platform-option {
+  color: var(--text);
+}
+body[data-theme='dark'] .platform-option:hover {
+  background: #3b4652;
+  color: var(--text-strong);
+}
+body[data-theme='dark'] .platform-option.selected {
+  background: #34495d;
+  color: #bddaf6;
+}

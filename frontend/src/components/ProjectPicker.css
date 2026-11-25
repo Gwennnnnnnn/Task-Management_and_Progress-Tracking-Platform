@@ -1,0 +1,344 @@
+/* Shared project picker and project breadcrumb styles. */
+.manager-projects-section {
+  margin-bottom: 24px;
+}
+
+.manager-project-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.manager-project-control-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.manager-project-count {
+  color: var(--muted);
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.manager-project-view-toggle {
+  display: inline-flex;
+  padding: 3px;
+  background: var(--soft-blue);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.manager-project-view-toggle button {
+  display: grid;
+  width: 32px;
+  height: 30px;
+  padding: 0;
+  place-items: center;
+  color: var(--muted);
+  background: transparent;
+  border: 0;
+  border-radius: 7px;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.manager-project-view-toggle button.active {
+  color: var(--text-strong);
+  background: var(--card);
+  box-shadow: var(--shadow-sm);
+}
+
+.manager-project-view-toggle button:focus-visible {
+  outline: 2px solid var(--royal);
+  outline-offset: 1px;
+}
+
+.manager-project-grid.is-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 16px;
+}
+
+.manager-project-grid.is-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+
+.manager-project-card {
+  min-width: 0;
+  padding: 14px;
+  text-align: left;
+  color: var(--text);
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.16s ease, box-shadow 0.16s ease, border-color 0.16s ease;
+}
+
+.manager-project-grid.is-list .manager-project-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.4fr) minmax(100px, 0.8fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 16px;
+  padding: 11px 16px;
+}
+
+.manager-project-grid.is-list .manager-project-card-top {
+  align-self: center;
+  margin-bottom: 0;
+}
+
+.manager-project-grid.is-list .manager-project-name {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+}
+
+.manager-project-grid.is-list .manager-project-statuses,
+.manager-project-grid.is-list .manager-project-progress,
+.manager-project-grid.is-list .manager-project-members {
+  min-width: 0;
+}
+
+.manager-project-grid.is-list .manager-project-members > span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.manager-project-card:hover,
+.manager-project-card:focus-visible {
+  transform: translateY(-2px);
+  border-color: var(--soft-blue-2);
+  box-shadow: var(--shadow);
+}
+
+.manager-project-card:focus-visible {
+  outline: 2px solid var(--royal);
+  outline-offset: 2px;
+}
+
+.manager-project-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  color: var(--muted);
+  margin-bottom: 14px;
+}
+
+.manager-project-summary {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.manager-project-icon {
+  display: grid;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  place-items: center;
+  border-radius: 12px;
+  background: var(--soft-blue);
+  color: var(--accent-ink);
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.manager-project-name {
+  min-width: 0;
+}
+
+.manager-project-name h4 {
+  overflow: hidden;
+  color: var(--text-strong);
+  font-size: 14px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.manager-project-task-total {
+  margin: 2px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.manager-project-grid.is-cards .manager-project-card-top {
+  margin-bottom: 14px;
+}
+
+.manager-project-statuses {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  min-height: 36px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.manager-project-statuses span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+}
+
+.project-status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+
+.project-status-dot.todo { background: var(--grey-ink); }
+.project-status-dot.in-progress { background: var(--inprogress-ink); }
+.project-status-dot.completed { background: var(--green-ink); }
+
+.manager-project-progress {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.manager-project-grid.is-list .manager-project-progress {
+  margin-top: 0;
+}
+
+.manager-project-progress .row {
+  margin-bottom: 6px;
+}
+
+.manager-project-progress strong {
+  color: var(--text-strong);
+}
+
+.manager-project-members {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 16px;
+  padding-top: 13px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.manager-project-grid.is-list .manager-project-members {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
+}
+
+.manager-project-avatars {
+  display: flex;
+  padding-left: 2px;
+}
+
+.manager-project-avatars .avatar {
+  flex-shrink: 0;
+  margin-left: -5px;
+  border: 2px solid var(--card);
+}
+
+.manager-project-avatars .avatar:first-child {
+  margin-left: 0;
+}
+
+.manager-projects-empty {
+  padding: 28px;
+  text-align: center;
+  color: var(--muted);
+  background: var(--card);
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+}
+
+.manager-project-breadcrumb {
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.manager-project-breadcrumb button {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 6px 4px 0;
+  color: var(--royal);
+  background: transparent;
+  border: 0;
+  font: inherit;
+  font-weight: 600;
+}
+
+.manager-project-breadcrumb button:hover {
+  color: var(--accent-ink);
+}
+
+.manager-project-title {
+  overflow: hidden;
+  margin-bottom: 16px;
+  color: var(--text-strong);
+  font-size: 20px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.app-shell[data-theme='dark'] .manager-project-icon {
+  color: #c9ddf2;
+  background: #263b50;
+}
+
+.app-shell[data-theme='dark'] .manager-project-card:hover,
+.app-shell[data-theme='dark'] .manager-project-card:focus-visible {
+  border-color: #52779c;
+}
+
+.app-shell[data-theme='dark'] .manager-project-avatars .avatar {
+  border-color: var(--card);
+}
+
+@media (max-width: 520px) {
+  .manager-project-controls {
+    flex-wrap: wrap;
+  }
+
+  .manager-project-control-actions {
+    margin-left: auto;
+  }
+
+  .manager-project-grid.is-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .manager-project-grid.is-list .manager-project-card {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .manager-project-grid.is-list .manager-project-card-top {
+    margin-bottom: 0;
+  }
+
+  .manager-project-card {
+    padding: 16px;
+  }
+}
+
+@media (max-width: 760px) and (min-width: 521px) {
+  .manager-project-grid.is-list .manager-project-card {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+}
