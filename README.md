@@ -1,180 +1,79 @@
+These credentials are for simulated authentication. The mock data also includes a second manager, daniel.lim@cla-demo.com, and additional staff accounts.
 
-# AI-Powered Task Management & Progress Tracking Platform
+### Suggested demo flow
 
-**NYP Industry Immersion Project (IIP) | Team 9**
+1. Sign in as **Staff** and click the **Overdue** summary card to view the filtered task list.
+2. Open a task and try the **Update progress** slider, **Status** dropdown and **Edit task**. Change the deadline and check where it appears in **Calendar**.
+3. Click **Simulate Incoming Task** in the top bar. Open the notification, review any missing details and update the task. Use **Dismiss** if the task was detected incorrectly.
+4. Open **Task Management & Review** and filter for tasks that need attention.
+5. Sign in as **Manager**, open a team member's task list and use **Approve & complete review** on a task in **Pending Internal Review**.
 
-An AI-powered task management platform designed to help CLA's audit staff and managers identify, prioritise, manage and monitor tasks from Microsoft Outlook and Teams.
+Use **Reset Demo Data** at the bottom of the sidebar to restore the original dataset. The simulated AI output comes from deterministic logic in frontend/src/services/aiService.js.
 
-## 1. Project Overview
+## Technology stack
 
-### Problem Statement
+| Component | Technology | Status |
+| --- | --- | --- |
+| Frontend | React 18, Vite 5, JavaScript, React Router 6, plain CSS | In the PoC |
+| Frontend state and storage | React Context, localStorage | In the PoC |
+| Backend | Python, FastAPI | Planned |
+| Database | PostgreSQL | Planned |
+| Authentication | Microsoft Entra ID | Proposed |
+| Outlook and Teams integration | Microsoft Graph API | Subject to CLA IT security approval |
+| AI | Approved AI model | To be determined |
+| Development tools | Git, GitHub, Visual Studio Code | In use |
 
-CLA's audit staff currently manage tasks across Outlook, Teams and other communication channels. This leads to:
+## Project structure
 
-- Scattered tasks, deadlines and responsibilities.
-- Time-consuming manual task tracking and follow-ups.
-- Difficulty prioritising urgent tasks.
-- Managers repeatedly chasing employees for progress updates.
-- Limited visibility of task progress across audit engagements.
-
-### Proposed Solution
-
-Develop an **AI-powered task management platform** that automatically identifies actionable tasks from communications and organises them into personalised dashboards.
-
-**Project Goal:** Reduce manual task follow-up time by at least **50%, from 4 hours to 2 hours per employee per week**, subject to PoC validation.
-
----
-
-## 2. Key Features
-
-### AI Task Extraction
-- Extract actionable tasks from Outlook emails and Teams messages.
-- Identify task descriptions, owners, deadlines and priorities.
-- Flag missing information and duplicate tasks.
-- Allow users and managers to review, edit, confirm or dismiss AI suggestions.
-
-### AI Task Prioritisation
-- Suggest High, Medium or Low priority based on urgency, deadlines and task importance.
-- Allow users to adjust AI recommendations.
-
-### Personalised Staff Dashboard
-- View and manage assigned tasks.
-- Monthly and weekly calendar showing task deadlines and Singapore public holidays.
-- Visual progress bars and task status tracking.
-- AI-assisted task status suggestions.
-
-### Manager Dashboard
-- View personal tasks and authorised team members' tasks.
-- Monitor employee progress and outstanding work.
-- Identify overdue tasks and potential bottlenecks.
-- Update manager profile photos from the profile page.
-- View Singapore public holidays in the team calendar.
-- Review a team-scoped audit log of task creation, updates, reviews and dismissals.
-- View AI-generated team progress summaries.
-
-### Task Progress & Notifications
-- Update task statuses: To Do, In Progress, Pending Internal Review, Pending Client, Pending Clarification and Completed.
-- Track task history and progress updates.
-- Use AI to suggest task status updates based on available information.
-- Notify users about deadlines and missing progress updates.
-- Require user approval before sending outbound reminders.
-
----
-
-## 3. Technology Stack
-
-| Component | Technology |
-|-----------|------------|
-| Frontend | React, JavaScript, CSS |
-| Backend | Python, FastAPI |
-| Database | PostgreSQL |
-| Authentication | Microsoft Entra ID (Proposed) |
-| Outlook / Teams Integration | Microsoft Graph API (Subject to approval) |
-| AI | Approved AI Model (TBD) |
-| Version Control | Git & GitHub |
-| IDE | Visual Studio Code |
-
----
-
-## 4. Team Responsibilities
-
-All four members will contribute to **both frontend and backend development**.
-
-| Member | Main Responsibility | Frontend | Backend |
-|--------|---------------------|----------|---------|
-| **Reanne** | Authentication, Audit Logs & Account Integration | Login, user profiles, account settings, role-based navigation, Audit Logs, Access Control | Authentication, user permissions, account management APIs |
-| **Gwen** | AI Task Extraction & Approval Management | Outlook/Teams connection interface, AI task suggestions, user/manager approval, task creation and editing | Microsoft Graph integration, AI task extraction, approval workflow, task APIs, database operations and notifications |
-| **Hung** | Staff Dashboard & AI Task Tracking | Personal dashboard, calendar, progress bars, task filtering, task status updates | Personal task retrieval, progress tracking, AI-assisted status suggestions and task history |
-| **Cheryl** | Manager Dashboard & AI Insights | Manager dashboard, team overview, employee progress tracking, AI summaries | Team task APIs, AI prioritisation, team progress monitoring and AI-generated summaries |
-
-**Shared Responsibilities:**
-- Database design and API integration
-- Testing and debugging
-- Documentation
-- GitHub collaboration
-- Final PoC demonstration
-
----
-
-## 5. Project Structure
-
-```text
-Task-Management_and_Progress-Tracking-Platform/
+.
 ├── frontend/
-│   └── src/
-│       ├── components/
-│       ├── pages/
-│       └── services/
-├── backend/
-│   ├── routes/
-│   ├── services/
-│   ├── models/
-│   └── main.py
-├── sample-data/
-├── docs/
-├── .gitignore
+│   ├── public/             # Static assets
+│   ├── src/
+│   │   ├── components/     # Reusable UI
+│   │   ├── pages/          # Login, dashboards and task review
+│   │   ├── services/       # Mock authentication, task and AI logic
+│   │   ├── context/        # Shared authentication and task state
+│   │   ├── data/           # Mock data
+│   │   ├── hooks/
+│   │   └── styles/
+│   ├── package.json
+│   └── vite.config.js
+├── backend/                # Reserved for backend development
+├── sample-data/            # Anonymised or synthetic test communications
+├── docs/                   # Project planning and technical documentation
 └── README.md
-```
 
-**Folder Overview:**
-- `frontend/` - React application and UI components.
-- `backend/` - APIs, database models and business logic.
-- `sample-data/` - Anonymised or synthetic test communications.
-- `docs/` - Project planning and technical documentation.
+## Team responsibilities
 
----
+All four members contribute to frontend and backend development.
 
-## 6. GitHub Collaboration
+| Member | Main responsibility | Frontend | Backend |
+| --- | --- | --- | --- |
+| Reanne | Authentication, audit logs and account integration | Login, profiles, account settings, role-based navigation, audit logs and access control | Authentication, permissions and account management APIs |
+| Gwen | AI task extraction and approval management | Connection screens, AI task review, approval workflows, and task creation and editing | Microsoft Graph integration, task extraction, approval workflows, task APIs, database operations and notifications |
+| Hung | Staff dashboard and AI task tracking | Personal dashboard, calendar, progress tracking, task filters and status updates | Personal task retrieval, progress tracking, status suggestions and task history |
+| Cheryl | Manager dashboard and AI insights | Team overview, employee progress tracking and AI summaries | Team task APIs, prioritisation, team progress monitoring and AI summaries |
 
-Each member will develop their assigned module using a separate feature branch.
+Shared responsibilities include database design, API integration, testing, debugging, documentation, GitHub collaboration and the final PoC demonstration.
 
-| Branch | Assigned Member |
-|--------|-----------------|
-| `main` | Stable shared code |
-| `feature/authentication` | Reanne |
-| `feature/ai-task-extraction` | Gwen |
-| `feature/personal-dashboard` | Hung |
-| `feature/manager-dashboard` | Cheryl |
+## GitHub collaboration
 
-### Development Workflow
+| Branch | Owner or purpose |
+| --- | --- |
+| main | Stable shared code |
+| feature/authentication | Reanne |
+| feature/ai-task-extraction | Gwen |
+| feature/personal-dashboard | Hung |
+| feature/manager-dashboard | Cheryl |
 
-1. Clone the repository.
-2. Create or switch to your feature branch.
-3. Develop and test your assigned features.
-4. Commit and push changes.
-5. Create a Pull Request.
-6. Request a teammate's review before merging into `main`.
+Clone the repository, develop and test on your feature branch, then commit and push your changes. Open a pull request and request a teammate's review before merging into main.
 
-**Do not push unfinished code directly to `main`.**
+## Security and future scope
+- Use anonymised or synthetic communications for development. Keep confidential client data, real passwords and API keys out of GitHub.
+- Apply role-based and engagement-level permissions when implementing backend access.
+- Use approved, preferably read-only access for live communications. Outlook and Teams integration requires CLA IT security approval.
+- Require human confirmation before applying suggested status changes or sending outbound reminders.
 
----
+Future enhancements include live Outlook and Teams integration, progress updates based on communications, Outlook Calendar synchronisation and advanced workload analytics.
 
-## 7. Security & PoC Scope
-
-- Use **anonymised or synthetic Outlook and Teams messages** for initial development.
-- Enforce role-based and engagement-level permissions.
-- Use approved, preferably read-only communication access.
-- Do not upload confidential client data, passwords or API keys to GitHub.
-- Require human confirmation for AI task suggestions and outbound reminders.
-- Live Outlook and Teams integration requires **CLA's IT security approval**.
-
-### Initial PoC
-
-- AI task extraction and user/manager approval
-- Personalised staff dashboard
-- Manager dashboard
-- Calendar and progress tracking
-- AI-assisted task status suggestions
-- AI prioritisation and progress summaries
-- Task notifications
-
-### Future Enhancements
-
-- Live Outlook and Teams integration
-- Automatic progress updates from communications
-- Outlook Calendar synchronisation
-- Advanced workload analytics
-
----
-
-*This project is a proof of concept for educational purposes and is not intended for production use without CLA's approval.*
+*This educational proof of concept requires CLA approval before production use.*
